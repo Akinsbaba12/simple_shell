@@ -10,6 +10,7 @@ The shell is a command line interface (CLI) program that takes commands from the
 | Filename | Description |
 | -------- | ----------- |
 | `AUTHORS` | A file listing all contributors to this project repository. |
+| `MAIN.H`  | Containing 3 prototypes of main. |
 
 ---
 ## Authors
