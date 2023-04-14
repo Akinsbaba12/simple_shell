@@ -11,6 +11,7 @@ The shell is a command line interface (CLI) program that takes commands from the
 | -------- | ----------- |
 | `AUTHORS` | A file listing all contributors to this project repository. |
 | `MAIN.H`  | Containing 3 prototypes of main. |
+| `BETTY.C` | [Betty.c](./0-betty.c) program prints names of project contributors. |
 
 ---
 ## Authors
