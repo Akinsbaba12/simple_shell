@@ -2,10 +2,7 @@
 
 /**
 * main - Program prints names of project contributors
-* @name1: pointer to input first contributor
-* @name2: pointer to inpute second contributor
-* @name1_len: string length of 1st contributor
-* @name2_len: string length ot 2nd contributor
+*
 *
 * Return: 0 (Success)
 */
