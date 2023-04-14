@@ -16,7 +16,7 @@ The shell is a command line interface (CLI) program that takes commands from the
 
 - ## [Elijah b. Akinnodi](https://www.github.com/Akinsbaba12)
 
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/Akinsbaba12/)
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/Akinsbaba12/simple_shell/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/mwlite/in/elijah-b-akinnodi-002bb952/)
 [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://mobile.twitter.com/Akinsbaba12/)
 
