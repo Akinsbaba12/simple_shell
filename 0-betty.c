@@ -33,5 +33,7 @@ write(1, " and ", 5);
 write(1, name2, name2_len);
 write(1, "\n", 1);
 
+free(name1);
+free(name2);
 return (0);
 }
