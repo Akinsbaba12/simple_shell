@@ -1,5 +1,14 @@
 #include "shell.h"
 
+/**
+ * main - a program that takes two integer
+ * @argc: an integer that represents the number of command-line arguments
+ *        passed to the program.
+ * @argv: a pointer to an array of strings that contains the command-line
+ *        arguments passed to the program.
+ * Return 0
+ */
+
 int main(int argc, char **argv)
 {
     char *print_prompt = "simple_shell ? ";
