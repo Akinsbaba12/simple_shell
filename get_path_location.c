@@ -11,25 +11,25 @@ char *get_path_location(char *command)
 
   if (pth)
     {
-      pth_cp = strdup(pth);
+      pth_cp = _strdup(pth);
 
-      cmd_len = strlen(command);
+      cmd_len = _strlen(command);
 
       pth_tok = strtok(pth_cp, ":");
 
       while (pth_tok != NULL)
 	{
-	  dir_len = strlen(pth_tok);
+	  dir_len = _strlen(pth_tok);
 
 	  file_pth = malloc(cmd_len + dir_len + 2);
 
-	  strcpy(file_pth, pth_tok);
+	  _strcpy(file_pth, pth_tok);
 
-	  strcat(file_pth, "/");
+	  _strcat(file_pth, "/");
 
-	  strcat(file_pth, command);
+	  _strcat(file_pth, command);
 
-	  strcat(file_pth, "\0");
+	  _strcat(file_pth, "\0");
 
 	  if (stat(file_pth, &buff) == 0)
 	    {
