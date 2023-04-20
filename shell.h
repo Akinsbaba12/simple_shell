@@ -11,6 +11,8 @@
 
 int _strlen(char *s);
 
+char *_strcpy(char *dest, char *src);
+
 void execmnd(char **argv);
 
 char *get_path_location(char *command);
