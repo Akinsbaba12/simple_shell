@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 /**
 * main - Program prints names of project contributors
