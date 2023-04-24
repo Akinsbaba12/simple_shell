@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-* _strcat - concatenates @src to @dest
+* *_strcat - concatenates @src to @dest
 * @src: the source string to append to @dest
 * @dest: the destiation string to be concatenated upon
 * Return:pointer to the resulting string
@@ -20,7 +20,7 @@ return (dest);
 }
 
 /**
-* _strdup - function copys string to new memory space location
+* *_strdup - function copys string to new memory space location
 * @str: char string to copy
 * Return: 0
 */
@@ -73,7 +73,7 @@ return (length);
 }
 
 /**
-* _strcpy - function copies the string pointed to by src
+* *_strcpy - function copies the string pointed to by src
 * @dest: char type string
 * @src: char type string
 * Description: Copy the string pointed to by pointer __src__ to
