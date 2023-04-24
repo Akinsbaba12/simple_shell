@@ -21,7 +21,7 @@ exe_command = get_path_location(command);
 
 if (execve(exe_command, argv, NULL) == -1)
 {
-perror("Error: Execute command failed");
+perror("Error: No such file or directory");
 }
 }
 }
