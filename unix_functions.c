@@ -18,7 +18,6 @@ char *_strcat(char *dest, char *src)
                 dest[dest_len++] = src[index];
         return (dest);
 }
-
 /**
  * _strdup - function copys string to new memory space location
  * @str: char string to copy
@@ -55,7 +54,6 @@ char *_strdup(char *str)
         return (ptr);
 
 }
-
 /**
  * _strlen - checks the length of a string
  * @s: string to check
@@ -71,7 +69,6 @@ int _strlen(char *s)
         length++;
         return (length);
 }
-
 /**
  * *_strcpy - function copies the string pointed to by src
  * @dest: char type string
