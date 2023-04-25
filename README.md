@@ -9,9 +9,14 @@ The shell is a command line interface (CLI) program that takes commands from the
 
 | Filename | Description |
 | -------- | ----------- |
-| `AUTHORS` | A file listing all contributors to this project repository. |
-| `MAIN.H`  | Containing 3 prototypes of main. |
+| `AUTHORS` | [AUTHORS](./AUTHORS) is a file listing all contributors to this project repository. |
+| `SHELL.H`  | [shell.h](./shell.h) contains 3 prototypes of main. |
 | `BETTY.C` | [Betty.c](./0-betty.c) program reads contributors names as strings characters and send sthe result to stdout uisng write system call |
+| `UNIX.C` | [Unix.c](./Unix.c) a program that displays a prompt on the screen. |
+| `UNIX_FUNCTN.C` | [Unix_functions.c](./Unix_functions.c) function used for concatenating two strings. It takes two arguments: `dest` and `src`, which are pointers to the destination and source strings, respectively. |
+| `EXECMND.C` | [execmnd.c](./execmnd.c) Function `execmnd` is a custom made function written in `C` that takes a pointer to an array of strings as its argument. |
+| `GET_PATH_LOCATN.C` | [get_path_location.c](./get_path_location.c) Function `get_path_location` is a custom made function written in C that takes a `string` as its argument, which represents a command name or executable file name. This function may be used to search for the location of the `executable` file in the system's `PATH` environment variable. |
+| `README.MD` | [README.md](./README.md) A file at the root of repo that provides information about the project, its contents, and how to use it. |
 
 ## List of allowed functions and system calls
 
