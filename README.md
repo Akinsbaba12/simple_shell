@@ -13,7 +13,6 @@ The shell is a command line interface (CLI) program that takes commands from the
 | `MAIN.H`  | Containing 3 prototypes of main. |
 | `BETTY.C` | [Betty.c](./0-betty.c) program reads contributors names as strings characters and send sthe result to stdout uisng write system call |
 
-
 ## List of allowed functions and system calls
 
 `access (man 2 access)`  `chdir (man 2 chdir)`  `close (man 2 close)`  `closedir (man 3 closedir)`  `execve (man 2 execve)` 
