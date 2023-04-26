@@ -1,13 +1,14 @@
 #include "shell.h"
 
 /**
-* main - Program prints names of project contributors
+* print_contributors - function prints names of project contributors
 *
 *
 * Return: 0 (Success)
 */
 
-int main(void)
+void print_contributors(void)
+
 {
 char *name1, *name2;
 int name1_len, name2_len;
@@ -35,5 +36,4 @@ write(1, "\n", 1);
 
 free(name1);
 free(name2);
-return (0);
 }
