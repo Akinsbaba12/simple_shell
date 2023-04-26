@@ -71,6 +71,8 @@ return (-1);
 		       argv[a] = NULL;
 
 		       execmnd(argv);
+		       //exec_command(argv);
+
 }
 free(CLI_ptr);
  free(CLI_ptr_copy);
