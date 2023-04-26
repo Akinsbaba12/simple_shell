@@ -13,7 +13,7 @@ char *get_path_location(char *command)
 	int cmd_len, dir_len;
 	struct stat buff;
 
-	pth = getenv("PATH");
+	pth = _getenv("PATH");
 	if (pth)
 	{
 		pth_cp = _strdup(pth);
