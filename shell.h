@@ -8,6 +8,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+void display_prompt(void);
+
+char *_getenv(char *name);
+
+int _strncmp(const char *str1, const char *str2, size_t num);
+
 char *_strtok(char *str, const char *delim);
 
 int _strcmp(char *s1, char *s2);
