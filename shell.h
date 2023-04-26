@@ -8,6 +8,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+extern char **environ;
+
 void display_prompt(void);
 
 char *_getenv(char *name);
@@ -28,10 +30,10 @@ int _strlen(char *s);
 
 char *_strcpy(char *dest, char *src);
 
-/*void exec_command(char **argv);*/
-void execmnd(char **argv);
+void exec_command(char **argv);
+/*void execmnd(char **argv);*/
 
-/*char *find_command_path(char *command);*/
-char *get_path_location(char *command);
+char *find_command_path(char *command);
+/*char *get_path_location(char *command);*/
 
 #endif
