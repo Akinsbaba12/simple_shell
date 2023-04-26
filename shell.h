@@ -22,11 +22,10 @@ int _strlen(char *s);
 
 char *_strcpy(char *dest, char *src);
 
-void exec_command(char **argv);
+/*void exec_command(char **argv);*/
 void execmnd(char **argv);
 
-char *find_command_path(char *command);
+/*char *find_command_path(char *command);*/
 char *get_path_location(char *command);
 
 #endif
-
