@@ -93,3 +93,28 @@ dest[a] = src[a];
 
 return (dest);
 }
+
+/**
+* *_strchr - function searches a string for an integer  
+* @str: pointer to string given
+* @ch: integer value to search for
+* Return: if success - pointer to the ineteger character
+* Else: NULL
+*/
+
+char *_strchr(const char *str, int ch)
+{
+    while (*str != '\0')
+      {
+        if (*str == ch)
+	  {
+            return (char *) str;
+        }
+        str++;
+    }
+    if (ch == '\0')
+      {
+        return (char *) str;
+    }
+    return (NULL);
+}
