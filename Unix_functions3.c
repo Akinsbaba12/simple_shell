@@ -2,26 +2,28 @@
 
 /**
  * _getenv - function returns an environment variable
- * @name: poinetr to character variable
+ * @name: pointer to character variable
  * Return: path of environment variable
  * Else: NULL if variable does not exist
  */
 
 char *_getenv(char *name)
 {
-  char **environ = NULL;
-    char **env;
-
+	char **env = environ;
+	char *value = NULL;
 	int name_len = _strlen(name);
 
-	for (env = environ; env != NULL; env++)
+	while (*env != NULL)
 	{
-		if (_strncmp(name, *env, name_len) == 0 && (*env)[name_len] == '=')
+		if (_strncmp(*env, name, name_len) == 0 &&
+				(*env)[name_len] == '=')
 		{
-			return (&((*env)[name_len + 1]));
+			value = *env + name_len + 1;
+			break;
 		}
+		env++;
 	}
-	return (NULL);
+	return (value);
 }
 
 /**
