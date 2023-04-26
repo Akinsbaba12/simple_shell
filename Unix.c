@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 			tok = _strtok(NULL, delm);
 		}
 		argv[a] = NULL;
-		execmnd(argv);
+		exec_command(argv);
 	}
 	free(CLI_ptr);
 	free(CLI_ptr_copy);
