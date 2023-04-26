@@ -7,16 +7,16 @@
  */
 int main(int argc, char **argv)
 {
-	char *print_prompt = "simple_shell ? ";
 	char *CLI_ptr = NULL, *CLI_ptr_copy = NULL, *tok;
 	size_t x = 0;
 	ssize_t tot_chars_read;
 	const char *delm = " \n";
-	int cnt_tok = 0, int a;
+	int a, cnt_tok = 0;
 	(void)argc;
+
 	while (1)
 	{
-		write(STDOUT_FILENO, print_prompt, _strlen(print_prompt));
+		display_prompt();
 		tot_chars_read = getline(&CLI_ptr, &x, stdin);
 		if (tot_chars_read == -1)
 		{
