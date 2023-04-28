@@ -4,6 +4,7 @@
  * display_prompt - function displays a prompt for user command
  * Return: void
  */
+
 void display_prompt(void)
 {
 	char *dis_prompt = "(?) ";
