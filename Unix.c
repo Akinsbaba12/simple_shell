@@ -8,31 +8,17 @@
 int main(int argc, char **argv)
 {
 	char *CLI_ptr = NULL, *CLI_ptr_copy = NULL, *tok;
-	size_t x = 0;
-	ssize_t tot_chars_read;
-	bool get_pip = false;
 	const char *delm = " \n";
+	bool get_pip = false;
 	int a, cnt_tok = 0;
 	(void)argc;
 
 	while (1 && !get_pip)
 	{
-	  if (isatty(STDIN_FILENO) == 0)
-	    get_pip = true;
-	  
+		if (isatty(STDIN_FILENO) == 0)
+			get_pip = true;
+
 		display_prompt();
-		 tot_chars_read = getline(&CLI_ptr, &x, stdin);
-                        if (tot_chars_read == -1)
-                        {
-                                write(STDOUT_FILENO, "Logging Out From simple shell ?.....\n", 39);
-                                return (-1);
-                        }
-                        CLI_ptr_copy = malloc(sizeof(char) * tot_chars_read);
-                if (CLI_ptr_copy == NULL)
-                {
-                        perror("ooops!!: memory allocation failed");
-                        return (-1);
-                }
 
 		_strcpy(CLI_ptr_copy, CLI_ptr);
 		tok = _strtok(CLI_ptr, delm);

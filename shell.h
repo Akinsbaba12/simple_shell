@@ -1,6 +1,9 @@
 #ifndef _SHELL_H_
 #define _SHELL_H_
 
+#define BUFFER_SIZE 1024
+#define MAX_ARGS 64
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <stdio.h>
@@ -11,7 +14,7 @@
 
 extern char **environ;
 
-void display_prompt(void);
+int display_prompt(void);
 
 char *_getenv(char *name);
 
