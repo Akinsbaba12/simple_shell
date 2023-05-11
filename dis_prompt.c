@@ -24,7 +24,7 @@ int display_prompt(void)
 		perror("ooops!!: memory allocation failed");
 		return (-1);
 	}
-	free(CLI_ptr);
-	free(CLI_ptr_copy);
+	/*free(CLI_ptr);*/
+	/*free(CLI_ptr_copy);*/
 	return (0);
 }
