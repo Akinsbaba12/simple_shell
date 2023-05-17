@@ -4,12 +4,15 @@
 #define BUFFER_SIZE 1024
 #define MAX_ARGS 64
 
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
+#include <signal.h>
+#include <stddef.h>
 #include <string.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 #include <stdbool.h>
 
 extern char **environ;

@@ -10,41 +10,47 @@
 char *find_command_path(char *command)
 {
 	char *pth, *pth_cp, *pth_tok, *file_pth;
-	size_t len;
+	int cmd_len, dir_len;
+	struct stat buffer;
 
-	/*Check if the command is already a full path.*/
-	if (_strchr(command, '/') != NULL)
-	{
-		/*The command is already a full path.*/
-		return (_strdup(command));
-	}
-	/*Split the PATH environment variable into individual directories.*/
 	pth = _getenv("PATH");
-	if (pth == NULL)
+	if (pth)
 	{
-		/*The PATH environment variable is not set.*/
-		return (NULL);
-	}
 	pth_cp = _strdup(pth);
+	cmd_len = _strlen(command);
 	pth_tok = _strtok(pth_cp, ":");
 
 	while (pth_tok != NULL)
 	{
 		/*Construct the full path of the command.*/
-		len = _strlen(pth_tok) + _strlen(command) + 2;
-		file_pth = malloc(len);
-		write(STDOUT_FILENO, pth_tok, _strlen(command));
+		dir_len = _strlen(pth_tok);
+		file_pth = malloc(cmd_len + dir_len + 2);
 
-		/* Check if the file exists and is executable.*/
-		if (access(file_pth, X_OK) == 0)
-		{
-			free(pth_cp);
-			return (file_pth);
-		}
-		free(file_pth);
-		pth_tok = _strtok(NULL, ":");
+		_strcpy(file_pth, pth_tok);
+		_strcat(file_pth, "/");
+		_strcat(file_pth, command);
+		_strcat(file_pth, "\0");
+
+		if (stat(file_pth, &buffer) == 0)
+		  {
+		    free(pth_cp);
+
+		    return (file_pth);
+
+		  }
+		else
+		  {
+		    free(file_pth);
+		    pth_tok = _strtok(NULL, ":");
+		  }
 	}
 	free(pth_cp);
+	if (stat(command, &buffer) == 0)
+	  {
+	    return (command);
+	  }
+	return (NULL);
+	}
 	return (NULL);
 }
 
@@ -57,18 +63,19 @@ char *find_command_path(char *command)
 
 void exec_command(char **argv)
 {
-	char *command, *path;
+	char *command = NULL, *new_command = NULL;
 
 	if (argv)
 	{
 		command = argv[0];
 
 		/*Find the full path of the command.*/
-		path = find_command_path(command);
+		new_command = find_command_path(command);
 		/* Eecute the command. */
-		if (execve(path, argv, NULL) == -1)
+		if (execve(new_command, argv, NULL) == -1)
+	    
 		{
-			perror("Error: No such file or directory");
+			perror("Error:");
 		}
 	}
 }

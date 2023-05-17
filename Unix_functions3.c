@@ -1,32 +1,6 @@
 #include "shell.h"
 
 /**
- * _getenv - function returns an environment variable
- * @name: pointer to character variable
- * Return: path of environment variable
- * Else: NULL if variable does not exist
- */
-
-char *_getenv(char *name)
-{
-	char **env = environ;
-	char *value = NULL;
-	int name_len = _strlen(name);
-
-	while (*env != NULL)
-	{
-		if (_strncmp(*env, name, name_len) == 0 &&
-				(*env)[name_len] == '=')
-		{
-			value = *env + name_len + 1;
-			break;
-		}
-		env++;
-	}
-	return (value);
-}
-
-/**
  * _strncmp - function compares the first @num character
  * of @str1 and @str2
  * @str1: pointer to first string character
@@ -52,4 +26,41 @@ int _strncmp(const char *str1, const char *str2, size_t num)
 		}
 	}
 	return (0);
+}
+
+/**
+ * _getenv - function returns an environment variable
+ * @name: pointer to character variable
+ * Return: path of environment variable
+ * Else: NULL if variable does not exist
+ */
+
+char *_getenv(char *name)
+{
+	char *token, *value, *cpy;
+	size_t i = 0;
+
+	if (!name)
+		exit(1);
+	while (environ[i] != NULL)
+	{
+		cpy = _strdup(environ[i]);
+		token = _strtok(cpy, "=");
+		if (_strcmp(name, token) == 0)
+		{
+			token = _strtok(NULL, "=");
+			value = malloc(sizeof(char) * _strlen(token) + 1);
+			if (!value)
+			{
+				free(cpy);
+				return (NULL);
+			}
+			_strcpy(value, token);
+			free(cpy);
+			break;
+		}
+		i++;
+		free(cpy);
+	}
+	return (value);
 }
