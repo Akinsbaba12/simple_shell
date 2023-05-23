@@ -4,7 +4,7 @@
  * *_strcat - concatenates @src to @dest
  * @src: the source string to append to @dest
  * @dest: the destiation string to be concatenated upon
- * Return:pointer to the resulting string
+ * Return:pointer to the resulting string.
  */
 
 char *_strcat(char *dest, char *src)
@@ -59,7 +59,7 @@ char *_strdup(char *str)
 /**
  * _strlen - checks the length of a string
  * @s: string to check
- * Return: int length of the string
+ * Return: int length of the string.
  */
 
 int _strlen(char *s)
@@ -73,7 +73,7 @@ int _strlen(char *s)
 }
 
 /**
- * *_strcpy - function copies the string pointed to by src
+ * *_strcpy - function copies the string pointed to by src.
  * @dest: char type string
  * @src: char type string
  * Description: Copy the string pointed to by pointer __src__ to
@@ -99,7 +99,7 @@ char *_strcpy(char *dest, char *src)
  * @str: pointer to string given
  * @ch: integer value to search for
  * Return: if success - pointer to the ineteger character
- * Else: NULL
+ * Else: NULL.
  */
 
 char *_strchr(const char *str, int ch)
