@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * *find_command_path - function gets the full path of a command.
+ * *find_command_path - the function gets the full path of a command.
  * @command: character command to find.
- * Return: full path of the command
+ * Return: full path of the command.
  * Else: NULL - if the command was not found.
  */
 
