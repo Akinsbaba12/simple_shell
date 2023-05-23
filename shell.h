@@ -14,6 +14,10 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <stdbool.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <limits.h>
+
 
 extern char **environ;
 
@@ -37,10 +41,14 @@ int _strlen(char *s);
 
 char *_strcpy(char *dest, char *src);
 
-void exec_command(char **argv);
-/*void execmnd(char **argv);*/
+int exec_command(char *argv[]);
 
 char *find_command_path(char *command);
-/*char *get_path_location(char *command);*/
+
+void display_error_message(char *argv[], char *message);
+
+int dis_string(char *str);
+
+int _putchar(char c);
 
 #endif

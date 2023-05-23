@@ -37,30 +37,18 @@ int _strncmp(const char *str1, const char *str2, size_t num)
 
 char *_getenv(char *name)
 {
-	char *token, *value, *cpy;
-	size_t i = 0;
 
-	if (!name)
-		exit(1);
-	while (environ[i] != NULL)
+	int name_len = _strlen(name);
+	int a = 0;
+
+	while (environ[a])
 	{
-		cpy = _strdup(environ[i]);
-		token = _strtok(cpy, "=");
-		if (_strcmp(name, token) == 0)
+		if (_strncmp(name, environ[a], name_len) == 0 && environ[a][name_len] == '=')
 		{
-			token = _strtok(NULL, "=");
-			value = malloc(sizeof(char) * _strlen(token) + 1);
-			if (!value)
-			{
-				free(cpy);
-				return (NULL);
-			}
-			_strcpy(value, token);
-			free(cpy);
-			break;
+			return (&environ[a][name_len + 1]);
 		}
-		i++;
-		free(cpy);
+		a++;
 	}
-	return (value);
+
+	return (NULL);
 }
