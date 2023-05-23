@@ -5,7 +5,7 @@
  * @s1: string to be compared.
  * @s2: second string to be compared.
  *
- * Return: The integer difference of S1 and S2
+ * Return: The integer difference of S1 and S2.
  */
 
 int _strcmp(char *s1, char *s2)
@@ -22,7 +22,7 @@ int _strcmp(char *s1, char *s2)
  * *_strtok - function tokenizes a tsring given a delimiter.
  * @str: pointer to the string to be tokenized
  * @delim: pointer to string containing the delimiter
- * Return: pointer to next token
+ * Return: pointer to next token.
  * Else: NULL
  */
 
