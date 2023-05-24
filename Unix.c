@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 		if (tot_chars_read == -1)
 		{
 			write(STDOUT_FILENO, "Logging Out From simple shell (?) .....\n", 45);
-			return (-1);
+			break;
 		}
 		CLI_ptr_copy = malloc(sizeof(char) * tot_chars_read);
 		if (CLI_ptr_copy == NULL)
@@ -51,10 +51,14 @@ int main(int argc, char **argv)
 			tok = _strtok(NULL, delm);
 		}
 		argv[a] = NULL;
-		/*exec_command(argv)*/
 		exe_stat = exec_command(argv);
 		if (exe_stat == 1)
 			display_error_message(argv, "File not found");
+		for (a = 0; argv[a] != NULL; a++)
+		  {
+		    free(argv[a]);
+		  }
+		free(argv);
 	}
 	free(CLI_ptr);
 	free(CLI_ptr_copy);
