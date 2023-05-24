@@ -33,7 +33,6 @@ int main(int argc, char **argv)
 			perror("ooops!!: memory allocation failed");
 			return (-1);
 		}
-
 		_strcpy(CLI_ptr_copy, CLI_ptr);
 		tok = _strtok(CLI_ptr, delm);
 		while (tok)
@@ -51,13 +50,20 @@ int main(int argc, char **argv)
 			tok = _strtok(NULL, delm);
 		}
 		argv[a] = NULL;
+		if (_strcmp(argv[0], "exit") == 0)
+                {
+                        exit_shell(argv, CLI_ptr);
+                        free(CLI_ptr);
+                        free(CLI_ptr_copy);
+                        return (0);
+                }
 		exe_stat = exec_command(argv);
 		if (exe_stat == 1)
 			display_error_message(argv, "File not found");
 		for (a = 0; argv[a] != NULL; a++)
-		  {
-		    free(argv[a]);
-		  }
+		{
+			free(argv[a]);
+		}
 		free(argv);
 	}
 	free(CLI_ptr);

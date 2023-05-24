@@ -52,3 +52,39 @@ char *_getenv(char *name)
 
 	return (NULL);
 }
+
+/**
+ * exit_shell - function exits the commandline prompt
+ * @argv_cmd: command argument entered
+ * @exit_message: message displayed on exit
+ * Return: NULL
+ * Else: Exit the shell
+*/
+
+void exit_shell(char *argv_cmd[], char *exit_message)
+{
+  
+  char *error_message = "Exiting Shell Failed";
+  int exit_status;
+
+    if (argv_cmd[1])
+    {
+        exit_status = _atoi(argv_cmd[1]);
+        if (exit_status >= 0)
+        {
+            free(exit_message);
+            free(argv_cmd);
+            exit(exit_status);
+        }
+        else
+        {
+            display_error_message(argv_cmd, error_message);
+        }
+    }
+    else
+    {
+        free(argv_cmd);
+        free(exit_message);
+        exit(0);
+    }
+}

@@ -19,10 +19,6 @@ int exec_command(char *argv[])
 		return (1);
 	}
 	command = argv[0];
-	if (_strcmp(command, "exit") == 0)
-	  {
-	    exit(0);
-	  }
 	new_command = find_command_path(command);
 	if (new_command && access(new_command, X_OK) != -1)
 	{

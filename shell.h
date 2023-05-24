@@ -21,6 +21,8 @@
 
 extern char **environ;
 
+int _atoi(char *s);
+
 int display_prompt(void);
 
 char *_getenv(char *name);
@@ -50,5 +52,7 @@ void display_error_message(char *argv[], char *message);
 int dis_string(char *str);
 
 int _putchar(char c);
+
+void exit_shell(char *argv_cmd[], char *exit_message);
 
 #endif
