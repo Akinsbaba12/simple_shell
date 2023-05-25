@@ -19,7 +19,7 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- * *_strtok - function tokenizes a tsring given a delimiter.
+ * *_strtok - function tokenizes a string given a delimiter.
  * @str: pointer to the string to be tokenized
  * @delim: pointer to string containing the delimiter
  * Return: pointer to next token.

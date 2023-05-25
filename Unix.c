@@ -45,18 +45,16 @@ int main(int argc, char **argv)
 		tok = _strtok(CLI_ptr_copy, delm);
 		for (a = 0; tok != NULL; a++)
 		{
-			argv[a] = malloc(sizeof(char) * _strlen(tok));
+			argv[a] = malloc(sizeof(char) * _strlen(tok) + 1);
 			_strcpy(argv[a], tok);
 			tok = _strtok(NULL, delm);
 		}
 		argv[a] = NULL;
 		if (_strcmp(argv[0], "exit") == 0)
-                {
-                        exit_shell(argv, CLI_ptr);
-                        free(CLI_ptr);
-                        free(CLI_ptr_copy);
-                        return (0);
-                }
+		{
+			exit_shell(argv, CLI_ptr);
+			break;
+		}
 		exe_stat = exec_command(argv);
 		if (exe_stat == 1)
 			display_error_message(argv, "File not found");
@@ -65,8 +63,8 @@ int main(int argc, char **argv)
 			free(argv[a]);
 		}
 		free(argv);
+		free(CLI_ptr_copy);
 	}
 	free(CLI_ptr);
-	free(CLI_ptr_copy);
 	return (0);
 }

@@ -71,8 +71,7 @@ int _atoi(char *s)
 
 		else if (number > 0)
 			break;
-	}
-	while (*s++);
+	}	while (*s++);
 
 	return (number * sig);
 }

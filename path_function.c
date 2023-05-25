@@ -34,7 +34,6 @@ char *find_command_path(char *command)
 			{
 				free(pth_cp);
 				return (file_pth);
-
 			}
 			else
 			{

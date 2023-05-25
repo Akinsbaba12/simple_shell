@@ -48,12 +48,11 @@ char *_strdup(char *str)
 
 		return (NULL);
 
-	for (ret = 0; str[ret]; ret++)
+	for (ret = 0; str[ret] != '\0'; ret++)
 
 		ptr[ret] = str[ret];
-
-	return (ptr);
-
+	ptr[ret] = '\0';
+		return (ptr);
 }
 
 /**
