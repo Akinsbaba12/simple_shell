@@ -39,20 +39,20 @@ int main(int argc, char **argv)
 			return (-1);
 		}
 		_strcpy(CLI_ptr_copy, CLI_ptr);
-		tok = _strtok(CLI_ptr, delm);
+		tok = strtok(CLI_ptr, delm);
 		while (tok)
 		{
 			cnt_tok++;
-			tok = _strtok(NULL, delm);
+			tok = strtok(NULL, delm);
 		}
 		cnt_tok++;
 		argv = malloc(sizeof(char *) * cnt_tok);
-		tok = _strtok(CLI_ptr_copy, delm);
+		tok = strtok(CLI_ptr_copy, delm);
 		for (a = 0; tok != NULL; a++)
 		{
 			argv[a] = malloc(sizeof(char) * _strlen(tok) + 1);
 			_strcpy(argv[a], tok);
-			tok = _strtok(NULL, delm);
+			tok = strtok(NULL, delm);
 		}
 		argv[a] = NULL;
 		if (_strcmp(argv[0], "exit") == 0)
