@@ -80,7 +80,7 @@ int _strlen(char *s)
  * Return: Pointer to _dest_
  */
 
-char *_strcpy(char *dest, char *src)
+char *_strcpy(char *dest, const char *src)
 
 {
 	int a = -1;
@@ -88,7 +88,7 @@ char *_strcpy(char *dest, char *src)
 	do {
 		a++;
 		dest[a] = src[a];
-	} while (src[a] != '\0');
+	} while (dest[a] != '\0');
 
 	return (dest);
 }

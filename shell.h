@@ -21,6 +21,8 @@
 
 extern char **environ;
 
+bool space_string (const char *str);
+
 int _atoi(char *s);
 
 int display_prompt(void);
@@ -41,7 +43,7 @@ char *_strcat(char *dest, char *src);
 
 int _strlen(char *s);
 
-char *_strcpy(char *dest, char *src);
+char *_strcpy(char *dest, const char *src);
 
 int exec_command(char *argv[]);
 
@@ -54,5 +56,19 @@ int dis_string(char *str);
 int _putchar(char c);
 
 void exit_shell(char *argv_cmd[], char *exit_message);
+
+char *create_env(char *env_name, char *env_value);
+
+void show_env(void);
+
+int set_env(char *name, char *value);
+
+int unset_env(char *var_name);
+
+int check_env(char *str);
+
+int execute_env(char **args);
+
+int _echo(char *args);
 
 #endif

@@ -41,7 +41,7 @@ char *_strtok(char *str, const char *delim)
 	}
 	/*Find the start of the next token*/
 	tok = new_tok;
-	while (*tok != '\0' && strchr(delim, *tok) != NULL)
+	while (*tok != '\0' && _strchr(delim, *tok) != NULL)
 	{
 		tok++;
 	}

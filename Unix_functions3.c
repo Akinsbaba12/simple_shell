@@ -29,32 +29,7 @@ int _strncmp(const char *str1, const char *str2, size_t num)
 }
 
 /**
- * _getenv - function returns an environment variable
- * @name: pointer to character variable
- * Return: path of environment variable
- * Else: NULL if variable does not exist
- */
-
-char *_getenv(char *name)
-{
-
-	int name_len = _strlen(name);
-	int a = 0;
-
-	while (environ[a])
-	{
-		if (_strncmp(name, environ[a], name_len) == 0 && environ[a][name_len] == '=')
-		{
-			return (&environ[a][name_len + 1]);
-		}
-		a++;
-	}
-
-	return (NULL);
-}
-
-/**
- * exit_shell - function exits the commandline prompt
+ * exit_shell - function exits the command line prompt
  * @argv_cmd: command argument entered
  * @exit_message: message displayed on exit
  * Return: NULL
@@ -87,4 +62,56 @@ void exit_shell(char *argv_cmd[], char *exit_message)
 		free(exit_message);
 		exit(0);
 	}
+}
+
+/**
+ * create_variable - creates an environment variable
+ * @env_name: name of the variable
+ * @env_value: value of the variable
+ *
+ * Return: the new variable
+ */
+
+char *create_env(char *env_name, char *env_value)
+{
+	char *var = NULL, *new_var = NULL;
+
+	new_var = _strcat(env_name, "=");
+	if (new_var == NULL)
+		return (NULL);
+
+	var = _strcat(new_var, env_value);
+	if (var == NULL)
+	{
+		free(new_var);
+		return (NULL);
+	}
+	free(new_var);
+	return (var);
+}
+
+/**
+ * _echo - Functions checks if a string is given 
+ * with echo command
+ * @arg: Argument variable pointer
+ * return: 1 - if succesful
+ * Else: -1
+ **/
+
+int _echo(char *args)
+{
+	char *input; 
+	input = _getenv(args);
+
+	if (args == NULL)
+	{
+		write(2, "Error: Enter string to echo", 30);
+		return (-1);
+	}
+	if (input)
+	{
+		write(1, input, _strlen(input));
+		return (1);
+	}
+	return (0);
 }

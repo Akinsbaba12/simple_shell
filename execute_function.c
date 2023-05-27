@@ -10,9 +10,10 @@
 
 int exec_command(char *argv[])
 {
-	char *command, *new_command;
+  char *command, *new_command, *null_command;
 	pid_t child_pid;
 	int status;
+	size_t new_command_len;
 
 	if (argv == NULL || argv[0] == NULL)
 	{
@@ -22,6 +23,15 @@ int exec_command(char *argv[])
 	new_command = find_command_path(command);
 	if (new_command && access(new_command, X_OK) != -1)
 	{
+	  new_command_len = _strlen(new_command);
+	  null_command = malloc(new_command_len + 1);
+	  if (null_command == NULL)
+	    {
+	      display_error_message(argv, "Memory Allocation Error:");
+	      return (1);
+	}
+	  _strcpy(null_command, new_command);
+	  null_command[new_command_len] = '\0';
 		child_pid = fork();
 		if (child_pid == -1)
 		{
@@ -29,7 +39,7 @@ int exec_command(char *argv[])
 		}
 		else if (child_pid == 0)
 		{
-			if (execve(new_command, argv, NULL) == -1)
+			if (execve(null_command, argv, NULL) == -1)
 			{
 				display_error_message(argv, "Execve Error:");
 			}
@@ -42,6 +52,7 @@ int exec_command(char *argv[])
 				display_error_message(argv, "Waitpid Error:");
 			}
 		}
+		free(null_command);
 		return (0);
 	}
 	return (1);
