@@ -91,7 +91,7 @@ char *create_env(char *env_name, char *env_value)
 }
 
 /**
- * _echo - Functions checks if a string is given 
+ * _echo - Functions checks if a string is given
  * with echo command
  * @arg: Argument variable pointer
  * return: 1 - if succesful
@@ -100,7 +100,7 @@ char *create_env(char *env_name, char *env_value)
 
 int _echo(char *args)
 {
-	char *input; 
+	char *input;
 	input = _getenv(args);
 
 	if (args == NULL)

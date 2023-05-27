@@ -10,7 +10,7 @@
 
 int exec_command(char *argv[])
 {
-  char *command, *new_command, *null_command;
+	char *command, *new_command, *null_command;
 	pid_t child_pid;
 	int status;
 	size_t new_command_len;
@@ -23,15 +23,15 @@ int exec_command(char *argv[])
 	new_command = find_command_path(command);
 	if (new_command && access(new_command, X_OK) != -1)
 	{
-	  new_command_len = _strlen(new_command);
-	  null_command = malloc(new_command_len + 1);
-	  if (null_command == NULL)
-	    {
-	      display_error_message(argv, "Memory Allocation Error:");
-	      return (1);
-	}
-	  _strcpy(null_command, new_command);
-	  null_command[new_command_len] = '\0';
+		new_command_len = _strlen(new_command);
+		null_command = malloc(new_command_len + 1);
+		if (null_command == NULL)
+		{
+			display_error_message(argv, "Memory Allocation Error:");
+			return (1);
+		}
+		_strcpy(null_command, new_command);
+		null_command[new_command_len] = '\0';
 		child_pid = fork();
 		if (child_pid == -1)
 		{

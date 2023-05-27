@@ -77,7 +77,7 @@ int _atoi(char *s)
 }
 
 /**
- * space_string - function checks if whitespace or empty string 
+ * space_string - function checks if whitespace or empty string
  * is entered to the prompt.
  * @s: Pointer to inputted string
  * Return: integer.
@@ -85,13 +85,13 @@ int _atoi(char *s)
 
 bool space_string (const char *str)
 {
-    while (*str)
-      {
-        if (*str != ' ' && *str != '\t')
-	  {
-            return (false);
-        }
-        str++;
-    }
-    return (true);
+	while (*str)
+	{
+		if (*str != ' ' && *str != '\t')
+		{
+			return (false);
+		}
+		str++;
+	}
+	return (true);
 }

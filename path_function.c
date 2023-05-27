@@ -32,7 +32,7 @@ char *find_command_path(char *command)
 
 			if (stat(file_pth, &buffer) == 0)
 			{
-			  /*free(pth_cp);*/
+
 				new_command = file_pth;
 				break;
 			}

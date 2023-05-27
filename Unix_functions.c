@@ -52,7 +52,7 @@ char *_strdup(char *str)
 
 		ptr[ret] = str[ret];
 	ptr[ret] = '\0';
-		return (ptr);
+	return (ptr);
 }
 
 /**

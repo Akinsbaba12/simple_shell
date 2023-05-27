@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * check_env - function checks and comapres 
+ * check_env - function checks and comapres
  * if string is a built-in environment variable.
  * @str: Pointer to string to check.
- * Return: 0 - if string is found 
+ * Return: 0 - if string is found
  * Else 1.
  */
 
@@ -56,7 +56,7 @@ int execute_env(char **args)
 			perror("Error: Remove Environment Variable");
 			return (0);
 		}
-	}	
+	}
 	else if (_strcmp(args[0], "echo") == 0)
 	{
 		if (args[1])
@@ -69,7 +69,7 @@ int execute_env(char **args)
 			perror("Error: Enter String to Use with Echo Command");
 			return (0);
 		}
-		
+
 	}
 	return (1);
 }
