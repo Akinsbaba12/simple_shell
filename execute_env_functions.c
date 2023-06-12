@@ -61,12 +61,11 @@ int execute_env(char **args)
 	{
 		if (args[1])
 		{
-			_echo(args[1]);
-			return (0);
+			return (_echo(args[1]));
 		}
 		else
 		{
-			perror("Error: Enter String to Use with Echo Command");
+			perror("Error: Echo Command Failled");
 			return (0);
 		}
 

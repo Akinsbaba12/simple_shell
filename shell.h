@@ -71,4 +71,10 @@ int execute_env(char **args);
 
 int _echo(char *args);
 
+char *shell_prompt(ssize_t *file_check);
+
+void free_array_strings(char *argv[]);
+
+char **command_tokens(char *cmd_input, ssize_t file_check);
+
 #endif

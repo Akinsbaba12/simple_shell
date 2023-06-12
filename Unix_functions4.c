@@ -13,6 +13,30 @@ int _putchar(char c)
 }
 
 /**
+ * free_array_strings - Function frees all dynamically allocated memory
+ * array of strings.
+ * @argv: array of strings memory to be freed.
+ */
+
+void free_array_strings(char *argv[])
+{
+	int a = 0;
+
+	if (argv == NULL)
+	{
+		return;
+	}
+
+	do {
+		free(argv[a]);
+		argv[a] = NULL;
+		a++;
+	} while (argv[a]);
+
+	free(argv);
+}
+
+/**
  * display_error_message - Function prints an error message
  * to the standard error file
  * @argv: pointer array of program argument

@@ -91,27 +91,31 @@ char *create_env(char *env_name, char *env_value)
 }
 
 /**
- * _echo - Functions checks if a string is given
- * with echo command
- * @arg: Argument variable pointer
+ * _echo - Functions executes echo command
+ * @args: Argument variable pointer
  * return: 1 - if succesful
  * Else: -1
  **/
 
-int _echo(char *args)
+int _echo(char *args) 
 {
-	char *input;
-	input = _getenv(args);
+	char *value;
 
-	if (args == NULL)
+	if (args == NULL) 
 	{
 		write(2, "Error: Enter string to echo", 30);
 		return (-1);
 	}
-	if (input)
+
+	value = _getenv(args);
+	if (value) 
 	{
-		write(1, input, _strlen(input));
-		return (1);
+		write(1, value, _strlen(value));
+		write(1, "\n", 1);
+	} 
+	else 
+	{
+		write(1, "(?) \n", 5);
 	}
-	return (0);
+	return (1);
 }
