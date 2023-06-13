@@ -55,7 +55,7 @@ int dis_string(char *str);
 
 int _putchar(char c);
 
-void exit_shell(char *argv_cmd[], char *exit_message);
+void exit_shell(char *argv_cmd[], int exit_status);
 
 char *create_env(char *env_name, char *env_value);
 

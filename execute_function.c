@@ -52,8 +52,12 @@ int exec_command(char *argv[])
 				display_error_message(argv, "Waitpid Error:");
 			}
 		}
-		free(null_command);
-		return (0);
+		if (_strcmp(null_command, command) != 0)
+			free(null_command);
+		if (WIFEXITED(status))
+			status = WEXITSTATUS(status);
+		return (status);
 	}
+	/*free(null_command);*/
 	return (1);
 }

@@ -10,48 +10,39 @@
 int main(int argc, char *argv[])
 {
 	char *unix_input;
-	ssize_t fd_check;
+	ssize_t file_check;
 	int exe_stat = 0;
-	char **unix_argv;
 
 	(void)argc;
-	(void)argv;
 
 	while (1)
 	{
-		unix_input = NULL;
-		fd_check = 0;
+		unix_input = NULL, file_check = 0;
 
-		unix_input = shell_prompt(&fd_check);
-		unix_argv = command_tokens(unix_input, fd_check);
+		unix_input = shell_prompt(&file_check);
+		argv = command_tokens(unix_input, file_check);
 
-		if (unix_input == -1)
-		{
-			write(STDOUT_FILENO, "Logging Out From simple shell (?) .....\n", 45);
-			break;
-		}
-
-		if (unix_argv[0] == NULL)
+		if (argv[0] == NULL)
 		{
 			free(unix_input);
-			free_array_strings(unix_argv);
+			free_array_strings(argv);
 			continue;
 		}
 
-		if (_strcmp(unix_argv[0], "exit") == 0)
+		if (_strcmp(argv[0], "exit") == 0)
 		{
 			free(unix_input);
-			exit_shell(unix_argv, exe_stat);
-			free_array_strings(unix_argv);
+			exit_shell(argv, exe_stat);
+			free_array_strings(argv);
 			continue;
 		}
 
-		if (execute_env(unix_argv) != 0)
+		if (execute_env(argv) != 0)
 		{
 			free(unix_input);
-			free_array_strings(unix_argv);
+			free_array_strings(argv);
 			continue;
-		}
+			}
 
 		exe_stat = exec_command(argv);
 		if (exe_stat == 1)
@@ -60,7 +51,7 @@ int main(int argc, char *argv[])
 		}
 
 		free(unix_input);
-		free_array_strings(unix_argv);
+		free_array_strings(argv);
 	}
 	return (0);
 }

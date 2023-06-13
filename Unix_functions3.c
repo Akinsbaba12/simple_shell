@@ -31,37 +31,65 @@ int _strncmp(const char *str1, const char *str2, size_t num)
 /**
  * exit_shell - function exits the command line prompt
  * @argv_cmd: command argument entered
- * @exit_message: message displayed on exit
+ * @exit_status: integer coversion of message displayed on exit
  * Return: NULL
  * Else: Exit the shell
  */
 
-void exit_shell(char *argv_cmd[], char *exit_message)
+void exit_shell(char *argv_cmd[], int exit_status)
 {
+	char temp_char, *error_message = "Exiting Shell Failed";
+	char exit_message[20];
+	int i, digit, length = 0;
+	int temp = exit_status;
 
-	char *error_message = "Exiting Shell Failed";
-	int exit_status;
+	if (temp == 0)
+	{
+		exit_message[length++] = '0';
+	}
+	else
+	{
+		while (temp)
+		{
+			digit = temp % 10;
+			exit_message[length++] = '0' + digit;
+			temp /= 10;
+		}
+	}
+
+	for (i = 0; i < length / 2; i++)
+	{
+		temp_char = exit_message[i];
+		exit_message[i] = exit_message[length - i - 1];
+		exit_message[length - i - 1] = temp_char;
+	}
+
+	exit_message[length] = '\0';
 
 	if (argv_cmd[1])
 	{
 		exit_status = _atoi(argv_cmd[1]);
 		if (exit_status >= 0)
 		{
-			free(exit_message);
 			free(argv_cmd);
+			write(1, exit_message, length);
 			exit(exit_status);
 		}
 		else
 		{
-			display_error_message(argv_cmd, error_message);
+			write(1, error_message, _strlen(error_message));
+			write(1, "\n", 1);
+			free(argv_cmd);
 		}
 	}
 	else
 	{
 		free(argv_cmd);
-		free(exit_message);
-		exit(0);
+		write(1, "0", 1);
 	}
+
+	write(1, "\n", 1);
+	exit(0);
 }
 
 /**
