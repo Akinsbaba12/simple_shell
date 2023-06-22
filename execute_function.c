@@ -58,6 +58,5 @@ int exec_command(char *argv[])
 			status = WEXITSTATUS(status);
 		return (status);
 	}
-	/*free(null_command);*/
 	return (1);
 }

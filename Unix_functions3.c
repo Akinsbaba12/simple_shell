@@ -85,10 +85,8 @@ void exit_shell(char *argv_cmd[], int exit_status)
 	else
 	{
 		free(argv_cmd);
-		write(1, "0", 1);
 	}
-
-	write(1, "\n", 1);
+	/*write(1, "\n", 1);*/
 	exit(0);
 }
 
@@ -139,11 +137,10 @@ int _echo(char *args)
 	if (value) 
 	{
 		write(1, value, _strlen(value));
-		write(1, "\n", 1);
+		/*write(1, "\n", 1);*/
 	} 
 	else 
 	{
-		write(1, "(?) \n", 5);
 	}
 	return (1);
 }

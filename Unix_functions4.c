@@ -43,7 +43,7 @@ void free_array_strings(char *argv[])
  * @message: error message displayed
  */
 
-void display_error_message(char *argv[], char *message)
+void display_error_message(char **argv, char *message)
 {
 	int i;
 	char *program_name = _getenv("_");

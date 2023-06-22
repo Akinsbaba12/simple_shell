@@ -49,7 +49,7 @@ int exec_command(char *argv[]);
 
 char *find_command_path(char *command);
 
-void display_error_message(char *argv[], char *message);
+void display_error_message(char **argv, char *message);
 
 int dis_string(char *str);
 
@@ -77,4 +77,6 @@ void free_array_strings(char *argv[]);
 
 char **command_tokens(char *cmd_input, ssize_t file_check);
 
+
 #endif
+

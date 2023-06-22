@@ -19,8 +19,9 @@ char *shell_prompt(ssize_t *file_check)
 		write(1, dis_prompt, _strlen(dis_prompt));
 	}
 	chars_read = getline(&prompt_input, &buffer_size, stdin);
+	*file_check = chars_read;
 
-	if (chars_read == -1)
+	if (*file_check == -1)
 	{
 		if (isatty(STDIN_FILENO))
 		write(1, "Logging Out From simple shell (?) .....\n", 45);
@@ -28,9 +29,9 @@ char *shell_prompt(ssize_t *file_check)
 		exit(EXIT_SUCCESS);
 	}
 
-	*file_check = chars_read;
+	/**file_check = chars_read;*/
 
-	if (*file_check == 1 && isatty(STDIN_FILENO))
+	if (*file_check == 0 && isatty(STDIN_FILENO))
 	{
 		/*free(prompt_input);*/
 		return (shell_prompt(file_check));
