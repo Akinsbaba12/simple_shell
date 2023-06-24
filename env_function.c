@@ -48,7 +48,6 @@ void show_env(void)
  * set_env - function sets or overwrites environment variable
  * @name: Array pointer name of variable
  * @value: Array pointer value of vaiable
- * @overwrite: integer value to overwrite or set new variable
  * Return: 0 - if variable is set
  * Else: -1
  */

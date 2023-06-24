@@ -7,7 +7,6 @@
  * Return: 0 - if string is found
  * Else 1.
  */
-
 int check_env(char *str)
 {
 	if (_strcmp(str, "env") == 0 || _strcmp(str, "setenv") == 0 ||
@@ -17,13 +16,11 @@ int check_env(char *str)
 	}
 	return (1);
 }
-
 /**
  * execute_env - function executes found built-in function.
- * args: pointer array of arguments.
+ * @args: pointer array of arguments.
  * Return: 0 - if success.
  */
-
 int execute_env(char **args)
 {
 	if (_strcmp(args[0], "env") == 0)
