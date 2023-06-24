@@ -4,7 +4,7 @@
  * shell_prompt - function reads unix shell prompts and display inputs
  * @file_check: pointer to the getline input
  * Return: character to the prompt_input
- *     
+ *
  */
 
 char *shell_prompt(ssize_t *file_check)
@@ -24,7 +24,7 @@ char *shell_prompt(ssize_t *file_check)
 	if (*file_check == -1)
 	{
 		if (isatty(STDIN_FILENO))
-		write(1, "Logging Out From simple shell (?) .....\n", 45);
+			write(1, "Logging Out From simple shell (?) .....\n", 45);
 		free(prompt_input);
 		exit(EXIT_SUCCESS);
 	}
@@ -42,5 +42,5 @@ char *shell_prompt(ssize_t *file_check)
 	if (newline_pos)
 		newline_pos = '\0';
 
-	 return (prompt_input);
+	return (prompt_input);
 }

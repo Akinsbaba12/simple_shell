@@ -21,8 +21,6 @@
 
 extern char **environ;
 
-bool space_string (const char *str);
-
 int _atoi(char *s);
 
 int display_prompt(void);

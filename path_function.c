@@ -9,7 +9,8 @@
 
 char *find_command_path(char *command)
 {
-  char *pth = NULL, *pth_cp = NULL, *pth_tok = NULL, *file_pth = NULL, *new_command = NULL;
+	char *pth = NULL, *pth_cp = NULL, *pth_tok = NULL;
+	char *file_pth = NULL, *new_command = NULL;
 	int cmd_len, dir_len;
 	struct stat buffer;
 
@@ -32,7 +33,6 @@ char *find_command_path(char *command)
 
 			if (stat(file_pth, &buffer) == 0)
 			{
-
 				new_command = file_pth;
 				break;
 			}

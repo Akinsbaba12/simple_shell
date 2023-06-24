@@ -91,7 +91,7 @@ void exit_shell(char *argv_cmd[], int exit_status)
 }
 
 /**
- * create_variable - creates an environment variable
+ * create_env - creates an environment variable
  * @env_name: name of the variable
  * @env_value: value of the variable
  *
@@ -119,24 +119,24 @@ char *create_env(char *env_name, char *env_value)
 /**
  * _echo - Functions executes echo command
  * @args: Argument variable pointer
- * return: 1 - if succesful
+ * Return: 1 - if succesful
  * Else: -1
  **/
 
-int _echo(char *args) 
+int _echo(char *args)
 {
 	char *value;
 
-	if (args == NULL) 
+	if (args == NULL)
 	{
 		write(2, "Error: Enter string to echo", 30);
 		return (-1);
 	}
 
 	value = _getenv(args);
-	if (value) 
+	if (value)
 	{
 		write(1, value, _strlen(value));
-	} 
+	}
 	return (1);
 }

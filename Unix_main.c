@@ -27,22 +27,22 @@ int main(int argc, char *argv[])
 			continue;
 		}
 		if (_strcmp(argv[0], "exit") == 0)
-                        {
-                                free(unix_input);
-                                exit_shell(argv, exe_stat);
-                                free_array_strings(argv);
-                                break;
-                        }
-			exe_stat = exec_command(argv);
-			if (exe_stat == 1)
-			{
-				display_error_message(argv, "File not found");
-			}
-			if (execute_env(argv) != 0)
-			{	
+		{
 			free(unix_input);
-			}
+			exit_shell(argv, exe_stat);
 			free_array_strings(argv);
+			break;
 		}
+		exe_stat = exec_command(argv);
+		if (exe_stat == 1)
+		{
+			display_error_message(argv, "File not found");
+		}
+		if (execute_env(argv) != 0)
+		{
+			free(unix_input);
+		}
+		free_array_strings(argv);
+	}
 	return (0);
-}	
+}

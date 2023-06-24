@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * exec_command - Function executes a command on CLI
  * with the given arguments.
@@ -7,7 +6,6 @@
  * Return: Executable file if found
  * Else: Error
  */
-
 int exec_command(char *argv[])
 {
 	char *command, *new_command, *null_command;

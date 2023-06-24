@@ -3,7 +3,7 @@
 /**
  * command_tokens - Function splits user's command input into tokens
  * @cmd_input: pointer to inputted command
- * @file_check: size of file descriptor check 
+ * @file_check: size of file descriptor check
  * Return: array of pointer to strings
  */
 
