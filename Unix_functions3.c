@@ -137,10 +137,6 @@ int _echo(char *args)
 	if (value) 
 	{
 		write(1, value, _strlen(value));
-		/*write(1, "\n", 1);*/
 	} 
-	else 
-	{
-	}
 	return (1);
 }
