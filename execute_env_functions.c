@@ -40,7 +40,7 @@ int execute_env(char **args)
 		}
 		else
 		{
-			perror("Error: Set Environment Variable");
+			perror("Error: Setenv Failed");
 			return (0);
 		}
 	}
@@ -53,7 +53,7 @@ int execute_env(char **args)
 		}
 		else
 		{
-			perror("Error: Remove Environment Variable");
+			perror("Error: Unsetenv Failed");
 			return (0);
 		}
 	}
@@ -65,7 +65,7 @@ int execute_env(char **args)
 		}
 		else
 		{
-			perror("Error: Echo Command Failled");
+			perror("Error: Enter string to echo");
 			return (0);
 		}
 
