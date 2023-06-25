@@ -18,7 +18,7 @@ char *shell_prompt(ssize_t *file_check)
 	{
 		write(1, dis_prompt, _strlen(dis_prompt));
 	}
-	chars_read = getline(&prompt_input, &buffer_size, stdin);
+	chars_read = get_line(&prompt_input, &buffer_size, stdin);
 	*file_check = chars_read;
 
 	if (*file_check == -1)
@@ -29,11 +29,8 @@ char *shell_prompt(ssize_t *file_check)
 		exit(EXIT_SUCCESS);
 	}
 
-	/**file_check = chars_read;*/
-
 	if (*file_check == 0 && isatty(STDIN_FILENO))
 	{
-		/*free(prompt_input);*/
 		return (shell_prompt(file_check));
 	}
 

@@ -75,6 +75,8 @@ void free_array_strings(char *argv[]);
 
 char **command_tokens(char *cmd_input, ssize_t file_check);
 
+ssize_t get_line(char **lineptr, size_t *n, FILE *stream);
+
 
 #endif
 
