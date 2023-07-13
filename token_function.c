@@ -25,11 +25,11 @@ char **command_tokens(char *cmd_input, ssize_t file_check)
 	_strcpy(cmd_input_cpy, cmd_input);
 
 	/*Count the number of tokens*/
-	tok = strtok(cmd_input_cpy, delimiter);
+	tok = _strtok(cmd_input_cpy, delimiter);
 	while (tok)
 	{
 		tok_cnt++;
-		tok = strtok(NULL, delimiter);
+		tok = _strtok(NULL, delimiter);
 	}
 
 	/*Allocate memory for argv*/
@@ -42,7 +42,7 @@ char **command_tokens(char *cmd_input, ssize_t file_check)
 	}
 
 	/*Tokenize cmd_input_cpy and store tokens in argv*/
-	tok = strtok(cmd_input, delimiter);
+	tok = _strtok(cmd_input, delimiter);
 	for (i = 0; i < tok_cnt; i++)
 	{
 		tok_len = _strlen(tok);
@@ -57,7 +57,7 @@ char **command_tokens(char *cmd_input, ssize_t file_check)
 			return (NULL);
 		}
 		_strcpy(argv[i], tok);
-		tok = strtok(NULL, delimiter);
+		tok = _strtok(NULL, delimiter);
 	}
 	argv[tok_cnt] = NULL;
 

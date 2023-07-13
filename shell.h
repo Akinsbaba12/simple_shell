@@ -59,9 +59,11 @@ char *create_env(char *env_name, char *env_value);
 
 void show_env(void);
 
-int set_env(char *name, char *value);
+/*int set_env(char *name, char *value);*/
+int set_env(char *name, char *value, int overwrite);
 
-int unset_env(char *var_name);
+/*int unset_env(char *var_name);*/
+int unset_env(char *name);
 
 int check_env(char *str);
 

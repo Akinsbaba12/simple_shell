@@ -23,35 +23,24 @@ int check_env(char *str)
  */
 int execute_env(char **args)
 {
-	if (_strcmp(args[0], "env") == 0)
+	if (_strcmp(args[0], "setenv") == 0)
+	{	
+		return (set_env(args[1], args[2], 1));
+	}
+	else if (_strcmp(args[0], "env") == 0)
 	{
 		show_env();
 		return (0);
-	}
-	else if (_strcmp(args[0], "setenv") == 0)
-	{
-		if (args[1] && args[2] && args[3])
-		{
-			set_env(args[1], args[2]);
-			return (0);
-		}
-		else
-		{
-			perror("Error: Setenv Failed");
-			return (0);
-		}
 	}
 	else if (_strcmp(args[0], "unsetenv") == 0)
 	{
 		if (args[1])
 		{
-			unset_env(args[1]);
-			return (0);
+			return (unset_env(args[1]));
 		}
 		else
 		{
-			perror("Error: Unsetenv Failed");
-			return (0);
+			write(2, "Error: Unsetenv Failed", 30);
 		}
 	}
 	else if (_strcmp(args[0], "echo") == 0)
@@ -62,10 +51,9 @@ int execute_env(char **args)
 		}
 		else
 		{
-			perror("Error: Enter string to echo");
-			return (0);
+			write(2, "Error: Enter string to echo", 28);
 		}
-
+write(2, "\n", 2);
 	}
 	return (1);
 }

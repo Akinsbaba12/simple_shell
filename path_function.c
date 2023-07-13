@@ -19,7 +19,7 @@ char *find_command_path(char *command)
 	{
 		pth_cp = _strdup(pth);
 		cmd_len = _strlen(command);
-		pth_tok = strtok(pth_cp, ":");
+		pth_tok = _strtok(pth_cp, ":");
 
 		while (pth_tok)
 		{
@@ -39,7 +39,7 @@ char *find_command_path(char *command)
 			else
 			{
 				free(file_pth);
-				pth_tok = strtok(NULL, ":");
+				pth_tok = _strtok(NULL, ":");
 			}
 		}
 		free(pth_cp);

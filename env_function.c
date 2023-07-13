@@ -52,7 +52,7 @@ void show_env(void)
  * Else: -1
  */
 
-int set_env(char *name, char *value)
+/*int set_env(char *name, char *value)
 {
 	if (name && value)
 	{
@@ -61,8 +61,8 @@ int set_env(char *name, char *value)
 	}
 
 	perror("Error: Set Environment Variables");
-	return (0);
-}
+	return (-1);
+}*/
 
 /**
  * unset_env - function removes set environment variable.
@@ -71,7 +71,7 @@ int set_env(char *name, char *value)
  * Else: -1
  */
 
-int unset_env(char *var_name)
+/*int unset_env(char *var_name)
 {
 	int x;
 	size_t var_len;
@@ -95,4 +95,4 @@ int unset_env(char *var_name)
 	}
 
 	return (0);
-}
+}*/

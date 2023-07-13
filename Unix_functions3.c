@@ -86,7 +86,6 @@ void exit_shell(char *argv_cmd[], int exit_status)
 	{
 		free(argv_cmd);
 	}
-	/*write(1, "\n", 1);*/
 	exit(0);
 }
 
